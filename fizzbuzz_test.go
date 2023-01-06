@@ -11,4 +11,9 @@ func TestFizz(t *testing.T) {
 	if got != "1" {
 		t.Errorf("Convert(1) is %q", got)
 	}
+
+	got = fizzbuzz.Convert(2)
+	if got != "2" {
+		t.Errorf("Convert(2) is %q", got)
+	}
 }
