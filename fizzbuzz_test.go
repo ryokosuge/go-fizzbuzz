@@ -7,23 +7,33 @@ import (
 )
 
 func TestConvert(t *testing.T) {
-	got := fizzbuzz.Convert(1)
-	if got != "1" {
-		t.Errorf("Convert(1) is %q", got)
+
+	tests := []struct{
+		n int
+		want string
+	}{
+		{
+			n:    1,
+			want: "1",
+		},
+		{
+			n:    2,
+			want: "2",
+		},
+		{
+			n:    3,
+			want: "Fizz",
+		},
+		{
+			n:    5,
+			want: "Buzz",
+		},
 	}
 
-	got = fizzbuzz.Convert(2)
-	if got != "2" {
-		t.Errorf("Convert(2) is %q", got)
-	}
-
-	got = fizzbuzz.Convert(3)
-	if got != "Fizz" {
-		t.Errorf("Convert(3) is %q", got)
-	}
-
-	got = fizzbuzz.Convert(5)
-	if got != "Buzz" {
-		t.Errorf("Convert(5) is %q", got)
+	for _, tt := range tests {
+		got := fizzbuzz.Convert(tt.n)
+		if got != tt.want {
+			t.Errorf("Convert(%v) = %q but want %q", tt.n, got, tt.want)
+		}
 	}
 }
