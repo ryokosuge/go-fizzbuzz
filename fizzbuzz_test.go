@@ -1,6 +1,7 @@
 package fizzbuzz_test
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/ryokosuge/go-fizzbuzz"
@@ -75,9 +76,12 @@ func TestConvert(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		got := fizzbuzz.Convert(tt.n)
-		if got != tt.want {
-			t.Errorf("Convert(%v) = %q but want %q", tt.n, got, tt.want)
-		}
+		name := fmt.Sprintf("number:%v", tt.n)
+		t.Run(name, func(t *testing.T) {
+			got := fizzbuzz.Convert(tt.n)
+			if got != tt.want {
+				t.Errorf("Convert(%v) = %q but want %q", tt.n, got, tt.want)
+			}
+		})
 	}
 }
