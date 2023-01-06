@@ -28,6 +28,10 @@ func TestConvert(t *testing.T) {
 			n:    5,
 			want: "Buzz",
 		},
+		{
+			n:    15,
+			want: "FizzBuzz",
+		},
 	}
 
 	for _, tt := range tests {
