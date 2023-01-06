@@ -1,5 +1,5 @@
 package fizzbuzz
 
 func Convert(n int) string {
-	return ""
+	return "1"
 }
